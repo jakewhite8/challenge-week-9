@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>D3</title>
+        <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.4.12/d3.min.js"></script>
+        <style type="text/css">  
+        </style>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var w = 800;
+            var h = 400;        
+            var margin = 100;
+ 
+            var dataset = [
+              { 'quadrant': 1,
+                'size': 20,
+                'x': 20,
+                'y': 45,
+                'energy': 15,
+                'angle': Math.PI/4,
+                'distance': 20
+              },
+              { 'quadrant': 2,
+                'size': 50,
+                'x': 30,
+                'y': 15,
+                'energy': 5,
+                'angle': Math.PI/3,
+                'distance': 40
+              },
+              { 'quadrant': 3,
+                'size': 25,
+                'x': 25,
+                'y': 65,
+                'energy': 10, 
+                'angle': -Math.PI/3,
+                'distance': 30
+              },
+              { 'quadrant': 4,
+                'size': 30,
+                'x': 35,
+                'y': 25,
+                'energy': 20,                                          
+                'angle': -Math.PI/4,
+                'distance': 40
+              },              
+            ];            
+           
+            var svg = d3.select("body")          
+                        .append("svg")
+                        .attr("width", w)
+                        .attr("height", h);
+ 
+          var yScale = d3.scale.linear()
+            .domain([0, d3.max(dataset.map(function(d) {
+              return d.y
+            }))])
+            .range([margin, h - margin]);
+ 
+          var xScale = d3.scale.linear()
+            .domain([0, d3.max(dataset.map(function(d) {
+              return d.x
+            }))])
+            .range([margin, w - margin]);            
+ 
+            symbol = svg.selectAll("g")
+              .data(dataset)
+              .enter()
+              .append("g")
+              .attr("transform", function(d, i) {
+                return "translate(" + xScale(d.x) + "," + yScale(d.y) +")";
+              });
+            
+
+            symbol.append("rect")
+                .attr("width", function(d){ return d.size; })
+                .attr("height", function(d){ return d.size; })
+                .attr("fill", "red");
+
+
+            symbol.append("rect")
+                .attr("width", function(d,i){
+                    return d.size/2;
+                })
+                .attr("height", function(d,i){
+                    return d.size/2;
+                })
+                .attr("x", function(d){
+                    if (d.quadrant == 1 || d.quadrant == 4){
+                        return d.size/2;
+                    }else{
+                        return d.size/2 - d.size/2;
+                    }
+                })
+                .attr("y", function(d){
+                    if (d.quadrant == 3 || d.quadrant == 4){
+                        return d.size/2; // TODO
+                    }else{
+                        return 0; // TODO
+                    }
+                })
+                .attr("fill", "blue");
+
+              symbol.append("rect")
+                .attr("width", function(d){return d.energy;})
+                .attr("height", 10)
+                .attr("x", function(d){return d.size;})
+                .attr("y", function(d){return d.size/2-5;})
+                .attr("fill", "black");
+
+
+ 
+        </script>
+    </body>
+</html>
