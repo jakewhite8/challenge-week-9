@@ -1,10 +1,10 @@
 # Name
 
-write-your-name
+Jake White
 
 # How many points have you earned?
 
-0/100
+~30/100
 
 (Make your own calculation and replace the number 0 with the points you think you've earned.)
 
@@ -18,7 +18,7 @@ fill-in-your-answer
 
 # What is the most difficult part about this week's challenge?
 
-fill-in-your-answer
+getting mongodb to work
 
 # Show and tell (8 points)
 
@@ -36,25 +36,25 @@ fill-in-your-answer
 
 # 1. (3 points)
 
-![image](image.png?raw=true)
+![image](http://i.imgur.com/klvWVwz.png)
 
 [checkpoint](checkpoint.html)
 
 # 2. (3 points)
 
-![image](image.png?raw=true)
+![image](http://i.imgur.com/3QfO97Z.png)
 
 [checkpoint](checkpoint.html)
 
 # 3. (3 points)
 
-![image](image.png?raw=true)
+![image](http://i.imgur.com/6P5r2Mt.png)
 
 [checkpoint](checkpoint.html)
 
 # 4. (3 points)
 
-![image](image.png?raw=true)
+![image](http://i.imgur.com/jP7jugP.png)
 
 [checkpoint](checkpoint.html)
 
@@ -62,15 +62,15 @@ fill-in-your-answer
 
 # 1. (4 points)
 
-![image](image.png?raw=true)
+![image](http://i.imgur.com/zxM02Iq.png)
 
 # 2. (4 points)
 
-![image](image.png?raw=true)
+![image](http://i.imgur.com/cMh80q2.png)
 
 # 3. (4 points)
 
-![image](image.png?raw=true)
+![image](http://i.imgur.com/K4V0HpQ.png)
 
 [challenge3](challenge3.html)
 
