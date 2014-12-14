@@ -82,89 +82,89 @@ fill-in-your-answer
 
 ### 1 (6 points)
 
-[mongodb js code collecting github events about our course](mongodb-github.js)
+[mongodb js code collecting github events about our course](mongodb_github.js)
 
 ### 2 (6 points)
 
-![terminal output of mongodb query](screenshot.png?raw=true)
+![terminal output of mongodb query](http://i.imgur.com/Zsam0vj.png)
 
 ## Challenge 1 (4 points x 10 = 40 points)
 
 ### 1 (4 points)
 
-> db.course_events.[complete this query]
+> db.gitEvents.findOne({"actor.login":"doubleshow"})
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](http://i.imgur.com/kYELz6S.png)
 
 ### 2 (4 points)
 
-> db.course_events.[complete this query]
+> db.gitEvents.findOne({"actor.login":"doubleshow"},{'actor':1})
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](http://i.imgur.com/GEtNE6G.png)
 
 ### 3 (4 points)
 
-> db.course_events.[complete this query]
+> db.gitEvents.find({'actor.login':{$in:['doubleshow','chrisbopp']}}, {'actor.login':1,'created_at':1})
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](http://i.imgur.com/DaxoKoA.png)
 
 ### 4 (4 points)
 
-> db.course_events.[complete this query]
+> db.gitEvents.findOne({‘type’:’PushEvent’})
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](http://i.imgur.com/aj7UXQv.png)
 
 ### 5 (4 points)
 
-> db.course_events.[complete this query]
+db.gitEvents.distinct('payload.commits.author.name', {'type': 'PushEvent'})
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](http://i.imgur.com/yNYOgaY.png)
 
 ### 6 (4 points)
 
-> db.course_events.[complete this query]
+b.gitEvents.findOne({'type': 'IssueCommentEvent'},{'payload':1})
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](http://i.imgur.com/uYdRxbM.png)
 
 ### 7 (4 points)
 
-> db.course_events.[complete this query]
+db.gitEvents.distinct('payload.issue.user.login', {'type': 'IssuesEvent'})
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](http://i.imgur.com/3DCDQaf.png)
 
 ### 8 (4 points)
 
-> db.course_events.[complete this query]
+> db.gitEvents.find({'type':'IssuesEvent', 'payload.issue.state':'closed'}, {'payload.issue.id':1, 'payload.issue.state':1})
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](http://i.imgur.com/bOBo8V9.png)
 
 ### 9 (4 points)
 
-> db.course_events.[complete this query]
+> db.gitEvents.find({'type':'IssuesEvent', 'payload.issue.state':'open'}, {'payload.issue.user.login':1, 'payload.issue.state':1})
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](http://i.imgur.com/my0IxQC.png)
 
 ### 10 (4 points)
 
-> db.course_events.[complete this query]
+> db.gitEvents.find({'type':'IssuesEvent', 'payload.issue.comments':{$gt:0}}, {'payload.issue.user.login':1, 'payload.issue.comments':1})
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](http://i.imgur.com/2Q5cZkR.png)
 
 
 ## Challenge 2 (8 points x 2 = 16 points) 
 
 ### 1 (8 points)
 
-{question-in-plain-English}
+Number of issues mike has commented on: 8
 
-> db.course_events.[complete this query]
+> db.gitEvents.find({'type': 'IssuesEvent', 'payload.issue.user.login':'wannabeCitizen'}).count()
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](http://i.imgur.com/XIEzlLz.png)
 
 ### 2 (8 points)
 
-{question-in-plain-English}
+Total number of issue comments
 
-> db.course_events.[complete this query]
+> db.gitEvents.find({'type': 'IssueCommentEvent'}).count()
 
-![screenshot](screenshot.png?raw=true)
+![screenshot](http://i.imgur.com/yfXpuuC.png)
